@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "IBM Plex Sans Condensed", "IBM Plex Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --color-bg: #090b0e;
+  --color-surface: #12161d;
+  --color-elevated: #181e27;
+  --color-inset: #0d1015;
+  --color-fg: #e8edf2;
+  --color-muted: #8b95a3;
+  --color-subtle: #5e6773;
+  --color-accent: #8aa4c4;
+  --color-accent-fg: #090b0e;
+  --color-line: #252b34;
+  --color-line-strong: #353c48;
+  --color-ok: #6e9b84;
+  --color-warn: #c4a574;
+  --color-danger: #c45c4e;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --shadow-panel: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.star-wash {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(232, 237, 242, 0.45), transparent),
+    radial-gradient(1px 1px at 28% 72%, rgba(232, 237, 242, 0.28), transparent),
+    radial-gradient(1px 1px at 63% 31%, rgba(232, 237, 242, 0.38), transparent),
+    radial-gradient(1px 1px at 81% 64%, rgba(232, 237, 242, 0.22), transparent),
+    radial-gradient(1.5px 1.5px at 47% 12%, rgba(138, 164, 196, 0.35), transparent),
+    radial-gradient(1px 1px at 91% 22%, rgba(232, 237, 242, 0.3), transparent),
+    radial-gradient(1px 1px at 8% 88%, rgba(232, 237, 242, 0.2), transparent);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .brief-page {
+    break-after: page;
+    break-inside: avoid;
+  }
+  body {
+    background: #090b0e !important;
+    color: #e8edf2 !important;
+  }
+}
